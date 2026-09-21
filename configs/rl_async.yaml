@@ -1,0 +1,13 @@
+mode: async
+rollout:
+  env: toy_physics
+  num_workers: 1
+  stale_steps_allowed: 4
+trainer:
+  algo: ppo
+  lr: 1e-4
+  updates: 200
+weight_sync:
+  mode: async
+  push_every_n_updates: 2
+seed: 0

@@ -1,0 +1,11 @@
+mode: sync
+rollout:
+  env: toy_physics
+  num_workers: 1
+trainer:
+  algo: ppo
+  lr: 1e-4
+  updates: 200
+weight_sync:
+  mode: sync
+seed: 0

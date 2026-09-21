@@ -1,0 +1,13 @@
+model:
+  type: transformer
+  hidden_size: 128
+  num_layers: 4
+  num_heads: 4
+train:
+  batch_size: 32
+  lr: 3e-4
+  epochs: 5
+  amp: bf16
+  seed: 0
+env:
+  name: toy_physics
