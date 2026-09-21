@@ -1,0 +1,37 @@
+# TASKS.md — Live Agent Backlog
+
+Convention: agents pick the first unchecked task (top to bottom within the current phase) unless told otherwise. Check the box and add a one-line result note (`-> ...`) when done. Add `blocked: <reason>` inline if stuck.
+
+## Phase 0 — Scaffolding
+- [x] Repository created, harness (`AGENTS.md`, CI, configs) in place.
+- [ ] `scripts/verify_env.py` — checks Python/torch/CUDA versions, prints a readiness table.
+- [ ] `tests/test_smoke.py` — trivial import + config-load test so CI is green from commit 1.
+
+## Phase 1 — Toy Environment + World Model + SFT
+- [ ] `envs/toy_physics.py` — gymnasium-style env (e.g. bouncing ball / simple cart) emitting (frame/state, action, reward) trajectories.
+- [ ] `worldmodel/model.py` — small transformer or ConvLSTM next-frame/state predictor; config-driven size.
+- [ ] `worldmodel/tokenizer.py` — discretizes/encodes states or frames into model inputs.
+- [ ] `train/sft.py` — supervised pretraining loop with AMP (bf16/fp16), checkpointing, and a `configs/sft.yaml`.
+- [ ] `tests/test_worldmodel.py` — forward-pass shape tests, single-step overfit test on a tiny batch.
+
+## Phase 2 — Distributed Training
+- [ ] `train/distributed.py` — DDP and FSDP wrappers behind a common interface; single-process fallback.
+- [ ] Benchmark: single vs multi-process throughput, with and without communication overlap (`profiling/bench_distributed.py`).
+- [ ] `docs/ARCHITECTURE.md` updated with the distributed training diagram + results table.
+
+## Phase 3 — RL Post-Training Infra (core deliverable)
+- [ ] `rl/rollout_worker.py` — runs current policy in `envs/`, pushes trajectories to a queue/IPC channel.
+- [ ] `rl/trainer_worker.py` — consumes trajectories, computes PPO/GRPO loss, updates policy.
+- [ ] `rl/weight_sync.py` — implements both **synchronous** (trainer blocks rollout while pushing weights) and **asynchronous** (rollout keeps stale weights for N steps) modes, config-selectable.
+- [ ] `configs/rl_sync.yaml`, `configs/rl_async.yaml`.
+- [ ] `tests/test_weight_sync.py` — correctness test that weights actually propagate and versions are tracked.
+
+## Phase 4 — Profiling & Benchmarking
+- [ ] `profiling/profile_rl.py` — wraps rollout/trainer with `torch.profiler`, exports Chrome trace + summary.
+- [ ] `profiling/plots.py` — throughput, GPU utilization %, and policy-staleness-vs-reward plots, sync vs async.
+- [ ] `docs/BENCHMARKS.md` — write-up of findings with the generated plots embedded.
+
+## Phase 5 — Polish
+- [ ] Full README pass with architecture diagram.
+- [ ] CI green end-to-end including a tiny smoke-train + smoke-RL run.
+- [ ] Tag `v0.1.0` release once Phases 1-4 are complete.
