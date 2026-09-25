@@ -4,11 +4,11 @@ Convention: agents pick the first unchecked task (top to bottom within the curre
 
 ## Phase 0 — Scaffolding
 - [x] Repository created, harness (`AGENTS.md`, CI, configs) in place.
-- [ ] `scripts/verify_env.py` — checks Python/torch/CUDA versions, prints a readiness table.
-- [ ] `tests/test_smoke.py` — trivial import + config-load test so CI is green from commit 1.
+- [x] `scripts/verify_env.py` — checks Python/torch/CUDA versions, prints a readiness table. -> implemented in initial scaffold
+- [x] `tests/test_smoke.py` — trivial import + config-load test so CI is green from commit 1. -> implemented in initial scaffold
 
 ## Phase 1 — Toy Environment + World Model + SFT
-- [ ] `envs/toy_physics.py` — gymnasium-style env (e.g. bouncing ball / simple cart) emitting (frame/state, action, reward) trajectories.
+- [x] `envs/toy_physics.py` — gymnasium-style env (e.g. bouncing ball / simple cart) emitting (frame/state, action, reward) trajectories. -> implemented ToyPhysicsEnv
 - [ ] `worldmodel/model.py` — small transformer or ConvLSTM next-frame/state predictor; config-driven size.
 - [ ] `worldmodel/tokenizer.py` — discretizes/encodes states or frames into model inputs.
 - [ ] `train/sft.py` — supervised pretraining loop with AMP (bf16/fp16), checkpointing, and a `configs/sft.yaml`.

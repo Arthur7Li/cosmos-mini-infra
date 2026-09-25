@@ -1,6 +1,7 @@
 """Smoke test: package imports and config files load. Keeps CI green from commit 1."""
-import yaml
 from pathlib import Path
+
+import yaml
 
 
 def test_configs_load():
@@ -11,8 +12,8 @@ def test_configs_load():
 
 
 def test_packages_import():
-    import worldmodel  # noqa: F401
     import envs  # noqa: F401
-    import train  # noqa: F401
-    import rl  # noqa: F401
     import profiling  # noqa: F401
+    import rl  # noqa: F401
+    import train  # noqa: F401
+    import worldmodel  # noqa: F401
