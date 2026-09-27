@@ -11,7 +11,7 @@ Convention: agents pick the first unchecked task (top to bottom within the curre
 - [x] `envs/toy_physics.py` — gymnasium-style env (e.g. bouncing ball / simple cart) emitting (frame/state, action, reward) trajectories. -> implemented ToyPhysicsEnv
 - [x] `worldmodel/model.py` — small transformer or ConvLSTM next-frame/state predictor; config-driven size. -> implemented GPT-style transformer
 - [x] `worldmodel/tokenizer.py` — discretizes/encodes states or frames into model inputs. -> implemented ContinuousTokenizer via linear binning
-- [ ] `train/sft.py` — supervised pretraining loop with AMP (bf16/fp16), checkpointing, and a `configs/sft.yaml`.
+- [x] `train/sft.py` — supervised pretraining loop with AMP (bf16/fp16), checkpointing, and a `configs/sft.yaml`. -> implemented SFT loop with random trajectory generator
 - [x] `tests/test_worldmodel.py` — forward-pass shape tests, single-step overfit test on a tiny batch. -> implemented tests
 
 ## Phase 2 — Distributed Training

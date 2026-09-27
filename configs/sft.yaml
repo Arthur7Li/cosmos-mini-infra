@@ -1,13 +1,15 @@
-model:
-  type: transformer
-  hidden_size: 128
-  num_layers: 4
-  num_heads: 4
+worldmodel:
+  vocab_size: 256
+  d_model: 64
+  n_layers: 2
+  n_heads: 4
+  max_seq_len: 128
+  dropout: 0.1
+
 train:
-  batch_size: 32
-  lr: 3e-4
-  epochs: 5
-  amp: bf16
-  seed: 0
-env:
-  name: toy_physics
+  batch_size: 16
+  learning_rate: 1.0e-3
+  epochs: 1
+  steps_per_epoch: 100
+  amp: true
+  device: "cuda"
