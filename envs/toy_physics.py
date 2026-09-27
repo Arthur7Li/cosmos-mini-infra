@@ -26,7 +26,9 @@ class ToyPhysicsEnv(gym.Env):
 
         # State: [position, velocity]
         self.observation_space = spaces.Box(
-            low=-np.inf, high=np.inf, shape=(2,), dtype=np.float32
+            low=np.array([-10.0, -10.0], dtype=np.float32), 
+            high=np.array([10.0, 10.0], dtype=np.float32), 
+            dtype=np.float32
         )
         # Action: [force]
         self.action_space = spaces.Box(
