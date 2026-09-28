@@ -15,7 +15,7 @@ Convention: agents pick the first unchecked task (top to bottom within the curre
 - [x] `tests/test_worldmodel.py` — forward-pass shape tests, single-step overfit test on a tiny batch. -> implemented tests
 
 ## Phase 2 — Distributed Training
-- [ ] `train/distributed.py` — DDP and FSDP wrappers behind a common interface; single-process fallback.
+- [x] `train/distributed.py` — DDP and FSDP wrappers behind a common interface; single-process fallback. -> implemented distributed wrappers
 - [ ] Benchmark: single vs multi-process throughput, with and without communication overlap (`profiling/bench_distributed.py`).
 - [ ] `docs/ARCHITECTURE.md` updated with the distributed training diagram + results table.
 
