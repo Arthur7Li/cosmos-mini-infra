@@ -39,7 +39,6 @@ def main() -> None:
     optimizer = AdamW(model.parameters(), lr=config["train"]["learning_rate"])
 
     # For profiling, we fix the number of steps to a small amount to keep trace sizes manageable
-    epochs = 1
     steps_per_epoch = 10 
     batch_size = config["train"]["batch_size"]
 
