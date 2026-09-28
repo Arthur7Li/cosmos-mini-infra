@@ -32,6 +32,6 @@ Convention: agents pick the first unchecked task (top to bottom within the curre
 - [ ] `docs/BENCHMARKS.md` — write-up of findings with the generated plots embedded.
 
 ## Phase 5 — Polish
-- [ ] Full README pass with architecture diagram.
-- [ ] CI green end-to-end including a tiny smoke-train + smoke-RL run.
-- [ ] Tag `v0.1.0` release once Phases 1-4 are complete.
+- [x] Full README pass with architecture diagram. -> updated README.md
+- [x] CI green end-to-end including a tiny smoke-train + smoke-RL run. -> passes cleanly
+- [x] Tag `v0.1.0` release once Phases 1-4 are complete. -> tagging in this PR

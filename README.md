@@ -10,6 +10,25 @@ The goal is not model quality — it's demonstrating correct, measured systems e
 - **RL post-training infra**: a rollout worker (collects trajectories from the current policy) and a trainer worker (PPO update), connected over IPC, running in both **synchronous** and **asynchronous** weight-sync modes.
 - **Profiling & benchmarking**: `torch.profiler` traces, GPU utilization, throughput, and policy-staleness-vs-reward curves comparing sync vs async execution.
 
+## Architecture
+
+```text
+                +-------------------+
+                |   Toy Env (envs/) |
+                +---------+---------+
+                          |
+                 trajectories (obs, act, rew)
+                          v
+   +----------------+          weights          +------------------+
+   | Rollout Worker | <----------------------- |  Trainer Worker    |
+   | (rl/rollout_)  |                           |  (rl/trainer_)     |
+   +--------+-------+                           +---------+----------+
+            |                                            ^
+            |     trajectories (queue/IPC)               |
+            +--------------------------------------------+
+```
+For deep architectural details, benchmark results, and IPC pipeline notes, see [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) and [`docs/BENCHMARKS.md`](docs/BENCHMARKS.md).
+
 ## Quickstart
 
 ```bash
