@@ -27,7 +27,7 @@ Convention: agents pick the first unchecked task (top to bottom within the curre
 - [x] `tests/test_weight_sync.py` — correctness test that weights actually propagate and versions are tracked.
 
 ## Phase 4 — Profiling & Benchmarking
-- [ ] `profiling/profile_rl.py` — wraps rollout/trainer with `torch.profiler`, exports Chrome trace + summary.
+- [x] `profiling/profile_rl.py` — wraps rollout/trainer with `torch.profiler`, exports Chrome trace + summary. -> implemented trace generation and timed benchmark
 - [ ] `profiling/plots.py` — throughput, GPU utilization %, and policy-staleness-vs-reward plots, sync vs async.
 - [ ] `docs/BENCHMARKS.md` — write-up of findings with the generated plots embedded.
 
