@@ -1,13 +1,18 @@
-mode: async
-rollout:
-  env: toy_physics
-  num_workers: 1
-  stale_steps_allowed: 4
-trainer:
-  algo: ppo
-  lr: 1e-4
-  updates: 200
-weight_sync:
-  mode: async
-  push_every_n_updates: 2
-seed: 0
+worldmodel:
+  vocab_size: 256
+  d_model: 64
+  n_layers: 2
+  n_heads: 4
+  max_seq_len: 128
+  dropout: 0.1
+
+train:
+  batch_size: 16
+  learning_rate: 1.0e-3
+  epochs: 1
+  steps_per_epoch: 100
+  amp: true
+  device: "cuda"
+
+rl:
+  sync_mode: "async"
