@@ -16,8 +16,8 @@ Convention: agents pick the first unchecked task (top to bottom within the curre
 
 ## Phase 2 — Distributed Training
 - [x] `train/distributed.py` — DDP and FSDP wrappers behind a common interface; single-process fallback. -> implemented distributed wrappers
-- [ ] Benchmark: single vs multi-process throughput, with and without communication overlap (`profiling/bench_distributed.py`).
-- [ ] `docs/ARCHITECTURE.md` updated with the distributed training diagram + results table.
+- [x] Benchmark: single vs multi-process throughput, with and without communication overlap (`profiling/bench_distributed.py`). -> implemented benchmarking script and metrics.json output
+- [x] `docs/ARCHITECTURE.md` updated with the distributed training diagram + results table. -> appended diagram and results table
 
 ## Phase 3 — RL Post-Training Infra (core deliverable)
 - [ ] `rl/rollout_worker.py` — runs current policy in `envs/`, pushes trajectories to a queue/IPC channel.
