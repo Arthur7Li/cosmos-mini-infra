@@ -20,11 +20,11 @@ Convention: agents pick the first unchecked task (top to bottom within the curre
 - [x] `docs/ARCHITECTURE.md` updated with the distributed training diagram + results table. -> appended diagram and results table
 
 ## Phase 3 — RL Post-Training Infra (core deliverable)
-- [ ] `rl/rollout_worker.py` — runs current policy in `envs/`, pushes trajectories to a queue/IPC channel.
-- [ ] `rl/trainer_worker.py` — consumes trajectories, computes PPO/GRPO loss, updates policy.
-- [ ] `rl/weight_sync.py` — implements both **synchronous** (trainer blocks rollout while pushing weights) and **asynchronous** (rollout keeps stale weights for N steps) modes, config-selectable.
-- [ ] `configs/rl_sync.yaml`, `configs/rl_async.yaml`.
-- [ ] `tests/test_weight_sync.py` — correctness test that weights actually propagate and versions are tracked.
+- [x] `rl/rollout_worker.py` — runs current policy in `envs/`, pushes trajectories to a queue/IPC channel.
+- [x] `rl/trainer_worker.py` — consumes trajectories, computes PPO/GRPO loss, updates policy.
+- [x] `rl/weight_sync.py` — implements both **synchronous** (trainer blocks rollout while pushing weights) and **asynchronous** (rollout keeps stale weights for N steps) modes, config-selectable.
+- [x] `configs/rl_sync.yaml`, `configs/rl_async.yaml`.
+- [x] `tests/test_weight_sync.py` — correctness test that weights actually propagate and versions are tracked.
 
 ## Phase 4 — Profiling & Benchmarking
 - [ ] `profiling/profile_rl.py` — wraps rollout/trainer with `torch.profiler`, exports Chrome trace + summary.
