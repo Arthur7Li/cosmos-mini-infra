@@ -6,7 +6,6 @@ import gymnasium as gym
 import torch
 
 import envs  # noqa: F401
-
 from rl.weight_sync import AsyncWeightManager, SyncWeightManager
 from worldmodel.model import WorldModel, WorldModelConfig
 from worldmodel.tokenizer import ContinuousTokenizer
